@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Directori & Katalog Perniagaan Pelajar UMT</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="page-container">
+    <!-- Top Stat Counter Cards -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-label">TOTAL USERS</span>
+        <h2 id="stat-total">0</h2>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">LELAKI</span>
+        <h2 id="stat-male" class="text-blue">0</h2>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">PEREMPUAN</span>
+        <h2 id="stat-female" class="text-pink">0</h2>
+      </div>
+    </div>
+
+    <!-- Header & Search Bar -->
+    <header class="main-header">
+      <h1 class="portal-title">DIRECTORI & KATALOG PERNIAGAAN PELAJAR UMT</h1>
+      <div class="control-bar">
+        <div class="search-wrapper">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="search-bar" placeholder="Search...">
+        </div>
+      </div>
+    </header>
+
+    <!-- Catalog Cards Grid -->
+    <main>
+      <div id="catalog-grid"></div>
+    </main>
+  </div>
+
+  <!-- Popup Modal Structure -->
+  <div id="modal-overlay" class="modal-overlay">
+    <div class="modal-box">
+      <button id="modal-close" class="modal-close-btn">&times;</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
