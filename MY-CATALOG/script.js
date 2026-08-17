@@ -28,7 +28,7 @@ function detectGender(name) {
 function updateTimestamp() {
   if (!statTotal) return;
   
-  // Secara automatik bina elemen jika tiada dalam HTML
+  // Membina elemen cap masa jika belum wujud
   let lastUpdatedEl = document.getElementById('last-updated');
   if (!lastUpdatedEl) {
     lastUpdatedEl = document.createElement('div');
@@ -49,7 +49,7 @@ function updateTimestamp() {
 
   lastUpdatedEl.innerHTML = `
     <span style="height: 7px; width: 7px; background-color: #10b981; border-radius: 50%; display: inline-block;"></span>
-    Masa Live: ${formattedTime}
+    Last Updated: ${formattedTime}
   `;
 }
 
