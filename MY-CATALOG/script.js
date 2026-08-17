@@ -8,6 +8,7 @@ const searchBar = document.getElementById('search-bar');
 const statTotal = document.getElementById('stat-total');
 const statMale = document.getElementById('stat-male');
 const statFemale = document.getElementById('stat-female');
+const lastUpdatedEl = document.getElementById('last-updated');
 
 const modalOverlay = document.getElementById('modal-overlay');
 const modalClose = document.getElementById('modal-close');
@@ -15,7 +16,6 @@ const modalBody = document.getElementById('modal-body');
 
 let allStudents = [];
 
-// Uniform gradient matching the selected card background
 const singleBannerGradient = 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)';
 
 function detectGender(name) {
@@ -25,6 +25,25 @@ function detectGender(name) {
     return 'Perempuan';
   }
   return 'Lelaki';
+}
+
+function setLastUpdatedTimestamp() {
+  if (!lastUpdatedEl) return;
+  const now = new Date();
+  
+  const formattedTime = now.toLocaleString('ms-MY', {
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: true
+  });
+
+  lastUpdatedEl.innerHTML = `
+    <span style="height: 6px; width: 6px; background-color: #10b981; border-radius: 50%; display: inline-block;"></span>
+    Masa Live: ${formattedTime}
+  `;
 }
 
 function displayProducts(items) {
@@ -142,6 +161,7 @@ async function loadCatalog() {
     const response = await fetch(API_URL);
     allStudents = await response.json();
     displayProducts(allStudents);
+    setLastUpdatedTimestamp();
   } catch (error) {
     console.error('Error fetching data:', error);
     grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: red;">Gagal memuatkan data dari Google Sheet.</p>';
